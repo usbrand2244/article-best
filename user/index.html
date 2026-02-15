@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArticleHub - Discover Amazing Articles</title>
+    <meta name="description" content="Read and discover amazing articles from talented authors on ArticleHub">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../user/css/user-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Breaking News Section -->
+    <section class="breaking-news" id="breakingNewsSection" style="display: none;">
+        <div class="container">
+            <div class="breaking-news-content">
+                <div class="breaking-news-label">
+                    <span class="breaking-news-badge">🚨 BREAKING</span>
+                </div>
+                <div class="breaking-news-ticker" id="breakingNewsTicker">
+                    <span id="breakingNewsText">Loading breaking news...</span>
+                </div>
+                <button class="breaking-news-close" id="closeBreakingNews">&times;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h2>Article<span class="gradient-text">Hub</span></h2>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="articles.html" class="nav-link">Articles</a>
+                <a href="categories.html" class="nav-link">Categories</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search articles..." class="search-input">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </div>
+                <button class="btn-secondary" id="loginBtn">Login</button>
+                <button class="btn-primary" id="signupBtn">Sign Up</button>
+                <div class="user-profile" id="userProfile" style="display: none;">
+                    <img src="" alt="Profile" id="profileImg" class="profile-img">
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="#" id="profileLink">My Profile</a>
+                        <a href="#" id="logoutBtn">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Stories That <span class="gradient-text">Inspire</span></h1>
+            <p class="hero-subtitle">Read thousands of articles from talented authors around the world</p>
+            <div class="hero-actions">
+                <button class="btn-primary btn-large" id="exploreBtn">Explore Articles</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3 id="articleCount">0</h3>
+                    <p>Articles</p>
+                </div>
+                <div class="stat-item">
+                    <h3 id="authorCount">0</h3>
+                    <p>Authors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Categories will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Articles Section -->
+    <section class="articles-section">
+        <div class="container">
+            <h2 class="section-title">Featured Articles</h2>
+            <div class="articles-grid" id="articlesGrid">
+                <!-- Articles will be loaded dynamically -->
+            </div>
+            <div class="load-more-container">
+                <button class="btn-secondary" id="loadMoreBtn">Load More Articles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ads Section -->
+    <section class="ads-section">
+        <div class="container">
+            <div class="ad-container" id="adContainer">
+                <!-- Ads will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Article<span class="gradient-text">Hub</span></h3>
+                <p>Your destination for quality articles and inspiring stories.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="../terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="../cookie-policy.html">Cookie Policy</a></li>
+                    <li><a href="../disclaimer.html">Disclaimer</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="../contact.html">Contact Us</a></li>
+                    <li><a href="../admin.html" class="nav-link">Admin</a></li>
+                    <li><a href="../author-login.html" class="nav-link">Author Login</a></li>
+                    <li><a href="../author-signup.html">Become an Author</a></li>
+                    <li><a href="../faq.html">FAQ</a></li>
+                    <li><a href="../help.html">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ArticleHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeLoginModal">&times;</span>
+            <h2>Welcome Back</h2>
+            <p class="modal-subtitle">Login to your account</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn-primary btn-full">Login</button>
+            </form>
+            <div class="divider">
+                <span>OR</span>
+            </div>
+            <button class="btn-google" id="googleLoginBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="#4285F4"
+                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                    <path fill="#34A853"
+                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                    <path fill="#FBBC05"
+                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                    <path fill="#EA4335"
+                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                </svg>
+                Continue with Google
+            </button>
+            <p class="modal-footer-text">Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeSignupModal">&times;</span>
+            <h2>Create Account</h2>
+            <p class="modal-subtitle">Join our community today</p>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="profilePicture">Profile Picture</label>
+                    <input type="file" id="profilePicture" accept="image/*">
+                    <div class="file-preview" id="filePreview"></div>
+                </div>
+                <button type="submit" class="btn-primary btn-full">Sign Up</button>
+            </form>
+            <div class="divider">
+                <span>OR</span>
+            </div>
+            <button class="btn-google" id="googleSignupBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="#4285F4"
+                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                    <path fill="#34A853"
+                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                    <path fill="#FBBC05"
+                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                    <path fill="#EA4335"
+                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                </svg>
+                Continue with Google
+            </button>
+            <p class="modal-footer-text">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../user/js/user-main.js"></script>
+</body>
+
+</html>

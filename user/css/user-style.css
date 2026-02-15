@@ -1,0 +1,235 @@
+/* Breaking News Section */
+.breaking-news {
+    background: linear-gradient(90deg, #ff4444 0%, #cc0000 100%);
+    color: white;
+    padding: 0.75rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.breaking-news-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.breaking-news-label {
+    flex-shrink: 0;
+}
+
+.breaking-news-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.breaking-news-ticker {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.breaking-news-ticker span {
+    display: inline-block;
+    animation: ticker 15s linear infinite;
+    white-space: nowrap;
+}
+
+@keyframes ticker {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.breaking-news-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 50%;
+    transition: var(--transition-base);
+    flex-shrink: 0;
+}
+
+.breaking-news-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* User Panel Specific Styles */
+
+/* Import base styles */
+@import url('../css/style.css');
+
+/* User Panel Overrides */
+.user-panel {
+    background: var(--bg-primary);
+    min-height: 100vh;
+}
+
+/* Enhanced User Experience */
+.article-card {
+    transition: var(--transition-base);
+    cursor: pointer;
+}
+
+.article-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-color);
+}
+
+/* User-specific navigation */
+.nav-container {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* User profile enhancements */
+.user-profile {
+    position: relative;
+}
+
+.profile-img {
+    border: 2px solid var(--primary-color);
+    transition: var(--transition-base);
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+}
+
+/* Search improvements */
+.search-container {
+    position: relative;
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Category cards for users */
+.category-card {
+    transition: var(--transition-base);
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+/* Mobile optimizations for user panel */
+@media (max-width: 768px) {
+    .user-panel {
+        padding: 0;
+    }
+    
+    .nav-container {
+        padding: 1rem;
+    }
+    
+    .hero {
+        padding: 4rem 1rem 2rem;
+    }
+    
+    .hero-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.75rem;
+    }
+    
+    .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .article-card {
+        margin-bottom: 1rem;
+    }
+    
+    .search-container {
+        width: 100%;
+        margin: 1rem 0;
+    }
+    
+    .search-input {
+        width: 100%;
+        padding: 0.875rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .nav-actions {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+    }
+    
+    .nav-actions button {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* User-specific animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content > * {
+    animation: fadeInUp 0.8s ease backwards;
+}
+
+.hero-title { animation-delay: 0.1s; }
+.hero-subtitle { animation-delay: 0.3s; }
+.hero-actions { animation-delay: 0.5s; }
+.hero-stats { animation-delay: 0.7s; }
+
+/* User-friendly loading states */
+.loading-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+.loading-user::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    margin-left: 0.5rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
